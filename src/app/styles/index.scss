@@ -1,0 +1,26 @@
+@use "reset";
+@use "variables/global";
+@use "themes/normal";
+
+
+
+body {
+    font: var(--font-m);
+    color: var(--primary-color);
+}
+
+.app {
+    background: var(--bg-color);
+    min-height: 100vh;
+    min-width: 100vh;
+    display: flex;
+}
+
+.content-page {
+    max-width: 1280px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding: 50px 50px 0px 50px;
+}
