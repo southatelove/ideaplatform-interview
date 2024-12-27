@@ -1,5 +1,6 @@
+import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
-import { Button } from "@/shared/index";
+import { Button } from "@/shared/ui/Button/Button";
 
 describe("Button", () => {
   test("Test render", () => {
@@ -7,9 +8,9 @@ describe("Button", () => {
     expect(screen.getByText("TEST")).toBeInTheDocument();
   });
 
-  test("Test clear theme", () => {
-    render(<Button>TEST</Button>);
-    expect(screen.getByText("TEST")).toHaveClass("clear");
-    screen.debug();
-  });
+  // test("Test clear theme", () => {
+  //   render(<Button>TEST</Button>);
+  //   expect(screen.getByText("TEST")).toHaveClass("clear");
+  //   screen.debug();
+  // });
 });

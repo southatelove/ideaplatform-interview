@@ -19,7 +19,7 @@ export default {
   transformIgnorePatterns: ["node_modules/(?!axios)"],
   globals: { __IS_DEV__: true },
   clearMocks: true,
-  testEnvironment: "node",
+  testEnvironment: "jsdom",
   coveragePathIgnorePatterns: ["\\\\node_modules\\\\"],
   moduleFileExtensions: ["js", "jsx", "ts", "tsx", "json", "node"],
   moduleDirectories: ["node_modules", "src"],
@@ -33,7 +33,9 @@ export default {
   // },
 
   moduleNameMapper: {
-    "^src/(.*)$": "<rootDir>/src/$1",
+    "\\.(css|less|scss|sass)$": "identity-obj-proxy",
+    "^@/(.*)$": "<rootDir>/src/$1",
+    "\\.module\\.(css|less|scss|sass)$": "identity-obj-proxy",
   },
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,

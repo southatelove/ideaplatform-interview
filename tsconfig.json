@@ -6,7 +6,8 @@
     "module": "ESNext",
     "skipLibCheck": true,
     // "types": ["@testing-library/jest-dom"],
-    "types": ["node"] ,
+    "esModuleInterop": true,
+    "types": ["jest"] ,
     
     /* Bundler mode */
     "moduleResolution": "bundler",
