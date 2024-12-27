@@ -18,8 +18,16 @@ export const StopFilter: React.FC = () => {
   console.log(selectedStops, "selectedStops");
   return (
     <div className={styles.filter}>
-      <h2>Фильтр по пересадкам</h2>
+      <h2>Количество пересадок</h2>
       <div>
+        <label>
+          <input
+            type="checkbox"
+            checked={selectedStops.length == 0 || selectedStops.includes(6)}
+            onChange={() => handleCheckboxChange(6)}
+          />
+          Все
+        </label>
         <label>
           <input
             type="checkbox"

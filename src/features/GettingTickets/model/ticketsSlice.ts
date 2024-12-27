@@ -22,6 +22,9 @@ const filterTickets = (tickets: Ticket[], selectedStops: number[]) => {
   if (selectedStops.length === 0) {
     return tickets;
   }
+  if (selectedStops.includes(6)) {
+    return tickets;
+  }
   return tickets.filter((ticket) => selectedStops.includes(ticket.stops));
 };
 
@@ -31,6 +34,7 @@ const ticketsSlice = createSlice({
   reducers: {
     toggleStop: (state, action: PayloadAction<number>) => {
       const stops = action.payload;
+
       if (state.selectedStops.includes(stops)) {
         state.selectedStops = state.selectedStops.filter((s) => s !== stops);
       } else {
