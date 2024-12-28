@@ -1,5 +1,5 @@
-import { TicketsFilter } from "./SearchFilter/ui/TicketsFilter";
+import { SearchFilter } from "./SearchFilter/ui/SearchFilter";
 import { TicketCard } from "./TicketCard/ui/TicketCard";
 import { TicketList } from "./TicketList/ui/TicketList";
 
-export { TicketsFilter, TicketCard, TicketList };
+export { SearchFilter, TicketCard, TicketList };

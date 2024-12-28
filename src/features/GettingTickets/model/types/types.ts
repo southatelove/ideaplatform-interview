@@ -13,7 +13,7 @@ export interface Ticket {
   convertedPrice: number;
 }
 
-export type Currency = "RUB" | "EUR" | "USD";
+export type Currency = "₽" | "€" | "$";
 
 export interface TicketsState {
   loading: boolean;

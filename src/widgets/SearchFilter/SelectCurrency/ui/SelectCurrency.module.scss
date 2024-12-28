@@ -1,4 +1,39 @@
 .selectCurrency {
-  max-width: 300px;
-  min-height: 100px;
+  width: fit-content;
+  gap:10px;
+}
+
+.text {
+  margin-bottom: 10px;
+}
+
+.buttonGroup {
+  display: flex;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.currencyButton {
+  padding: 10px 30px;
+  font-size: 14px;
+  background-color: var(--white-color);
+  border: none;
+  border-right: 1px solid #e0e0e0;
+  color: var(--bright-blue);
+  transition: background-color 0.3s ease;
+  border-radius: 0;
+
+  &:last-child {
+    border-right: none;
+  }
+
+  &:hover {
+    background-color: var(--light-blue);
+  }
+
+  &.active {
+    background-color: var(--bright-blue);
+    color: var(--white-color)
+  }
 }

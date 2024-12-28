@@ -5,8 +5,8 @@ import { setCurrency } from "@/features/GettingTickets/model/ticketsSlice";
 import styles from "./SelectCurrency.module.scss";
 import { RootState } from "@/app/providers/StoreProvider/config/store";
 import { Button } from "@/shared/index";
-import { ButtonSize } from "@/shared/ui/Button/Button";
 import { Currency } from "@/features/GettingTickets/model/types/types";
+import { Text } from "@/shared/ui/Text/Text";
 
 export const SelectCurrency: React.FC = () => {
   const dispatch = useDispatch();
@@ -17,26 +17,33 @@ export const SelectCurrency: React.FC = () => {
 
   return (
     <div className={styles.selectCurrency}>
-      <h2>Валюта</h2>
-      <Button
-        className={currency === "RUB" ? styles.active : ""}
-        onClick={() => handleCurrencyChange("RUB")}
-        size={ButtonSize.SMALL}
-      >
-        RUB
-      </Button>
-      <Button
-        className={currency === "USD" ? styles.active : ""}
-        onClick={() => handleCurrencyChange("USD")}
-      >
-        USD
-      </Button>
-      <Button
-        className={currency === "EUR" ? styles.active : ""}
-        onClick={() => handleCurrencyChange("EUR")}
-      >
-        EUR
-      </Button>
+      <Text text={"ВАЛЮТА"} className={styles.text} />
+      <div className={styles.buttonGroup}>
+        <Button
+          className={`${styles.currencyButton} ${
+            currency === "₽" ? styles.active : ""
+          }`}
+          onClick={() => handleCurrencyChange("₽")}
+        >
+          RUB
+        </Button>
+        <Button
+          className={`${styles.currencyButton} ${
+            currency === "$" ? styles.active : ""
+          }`}
+          onClick={() => handleCurrencyChange("$")}
+        >
+          USD
+        </Button>
+        <Button
+          className={`${styles.currencyButton} ${
+            currency === "€" ? styles.active : ""
+          }`}
+          onClick={() => handleCurrencyChange("€")}
+        >
+          EUR
+        </Button>
+      </div>
     </div>
   );
 };

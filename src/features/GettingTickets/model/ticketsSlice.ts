@@ -8,17 +8,16 @@ const initialState: TicketsState = {
   filteredTickets: [],
   error: null,
   selectedStops: [],
-  currency: "RUB",
+  currency: "₽",
   convertedPrice: 0,
 };
 
 const convertPrice = (price: number, currency: string): number => {
-  console.log(price, "convertPriceFirst");
   const convertedPrice = price;
 
-  if (currency === "RUB") return convertedPrice;
-  if (currency === "USD") return convertedPrice / 100;
-  if (currency === "EUR") return convertedPrice / 105;
+  if (currency === "₽") return convertedPrice;
+  if (currency === "$") return convertedPrice / 100;
+  if (currency === "€") return convertedPrice / 105;
   return convertedPrice;
 };
 
@@ -66,6 +65,7 @@ const ticketsSlice = createSlice({
       })
       .addCase(gettingTickets.fulfilled, (state, action) => {
         state.loading = false;
+        console.log(action.payload.tickets, "tickets from API");
         state.tickets = action.payload.tickets;
         state.filteredTickets = action.payload.tickets.map((ticket) => ({
           ...ticket,
@@ -81,77 +81,3 @@ const ticketsSlice = createSlice({
 
 export const { toggleStop, setCurrency } = ticketsSlice.actions;
 export default ticketsSlice.reducer;
-
-// import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-// import { Ticket, TicketsState } from "./types/types";
-// import { gettingTickets } from "./services/gettingTickets";
-
-// const initialState: TicketsState = {
-//   loading: false,
-//   tickets: [],
-//   filteredTickets: [],
-//   error: null,
-//   selectedStops: [],
-//   currency: "RUB",
-// };
-
-// const convertPrice = (price: number, currency: string): number => {
-//   if (currency === "RUB") return price;
-//   if (currency === "USD") return price / 100;
-//   if (currency === "EUR") return price / 105;
-//   return price;
-// };
-
-// const ticketsSlice = createSlice({
-//   name: "tickets",
-//   initialState,
-//   reducers: {
-//     toggleStop: (state, action: PayloadAction<number>) => {
-//       console.log(action.payload, "action Payload");
-//       if (state.selectedStops.includes(action.payload)) {
-//         state.selectedStops = state.selectedStops.filter(
-//           (s) => s !== action.payload
-//         );
-//       } else {
-//         state.selectedStops = [...state.selectedStops, action.payload];
-//       }
-//       state.filteredTickets = filterTickets(state.tickets, state.selectedStops);
-//     },
-//     setCurrency: (state, action: PayloadAction<string>) => {
-//       state.currency = action.payload;
-//       state.filteredTickets = state.tickets.map((ticket) => ({
-//         ...ticket,
-//         price: convertPrice(ticket.price, state.currency),
-//       }));
-//     },
-//   },
-//   extraReducers: (builder) => {
-//     builder
-//       .addCase(gettingTickets.pending, (state) => {
-//         state.loading = true;
-//         state.error = null;
-//       })
-//       .addCase(gettingTickets.fulfilled, (state, action) => {
-//         state.loading = false;
-//         state.tickets = action.payload.tickets;
-//         state.filteredTickets = action.payload.tickets.map((ticket) => ({
-//           ...ticket,
-//           price: convertPrice(ticket.price, state.currency),
-//         }));
-//       })
-//       .addCase(gettingTickets.rejected, (state, action) => {
-//         state.loading = false;
-//         state.error = action.error.message ?? "An error occurred";
-//       });
-//   },
-// });
-
-// const filterTickets = (tickets: Ticket[], selectedStops: number[]) => {
-//   if (selectedStops.length === 0) {
-//     return tickets;
-//   }
-//   return tickets.filter((ticket) => selectedStops.includes(ticket.stops));
-// };
-
-// export const { toggleStop, setCurrency } = ticketsSlice.actions;
-// export default ticketsSlice.reducer;

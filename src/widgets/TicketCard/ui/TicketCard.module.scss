@@ -5,9 +5,10 @@
     background-color: var(--white-color);
     border: 1px solid #f0f0f0;
     border-radius: 5px;
-    margin: 20px;
+    margin: 0px 0px 20px 20px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
     padding: 10px;
+    min-width: 730px;
 }
 
 .leftside{
@@ -37,4 +38,33 @@
 
 .text {
     margin-bottom: 8px;
+}
+
+
+.airplaneIcon {
+    position: absolute;
+    width: 20px;
+    top: 15px
+}
+
+.airplanecontainer {
+    display: flex;
+    padding: 0px 20px 0px 20px;
+    position: relative;
+    align-items: center;
+    width: 200px;
+    padding-bottom: 30px;
+}
+
+.stops {
+    position: absolute;
+    top:0;
+    left: 50px;
+    text-transform: uppercase;
+}
+
+.verticalline {
+    height: 1px;
+    background-color: #d0d5dd;
+    min-width: 140px;
 }

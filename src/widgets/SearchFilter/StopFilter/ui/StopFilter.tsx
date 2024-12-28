@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import styles from "./StopFilter.module.scss";
 import { RootState } from "@/app/providers/StoreProvider/config/store";
 import { toggleStop } from "@/features/GettingTickets/model/ticketsSlice";
+import { Text } from "@/shared/ui/Text/Text";
 
 export const StopFilter: React.FC = () => {
   const dispatch = useDispatch();
@@ -17,8 +18,8 @@ export const StopFilter: React.FC = () => {
 
   return (
     <div className={styles.filter}>
-      <h2>Количество пересадок</h2>
-      <div>
+      <Text text={"КОЛИЧЕСТВО ПЕРЕСАДОК"} />
+      <div className={styles.checkboxContainer}>
         <label>
           <input
             type="checkbox"

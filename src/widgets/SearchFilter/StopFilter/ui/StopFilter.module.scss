@@ -1,5 +1,4 @@
 .filter {
-  border: 1px solid #ddd;
   padding: 10px;
   margin-bottom: 10px;
 }
@@ -7,4 +6,39 @@
 .filter label {
   display: block;
   margin-bottom: 5px;
+}
+
+.checkboxContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  padding: 5px 0;
+
+  input[type="checkbox"] {
+    margin-right: 8px;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    cursor: pointer;
+
+    &:checked {
+      background-color: var(--light-blue);
+      border-color: var(--bright-blue);
+      position: relative;
+
+      &:after {
+        content: '';
+        position: absolute;
+        left: 4px;
+        top: 0px;
+        width: 5px;
+        height: 10px;
+        border: solid var(--bright-blue);
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+      }
+    }
+  }
 }

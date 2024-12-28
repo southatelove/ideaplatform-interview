@@ -10,8 +10,6 @@ export const TicketList: React.FC = () => {
   const { filteredTickets, loading, error, currency } = useSelector(
     (state: RootState) => state.tickets
   );
-  // console.log(convertedPrice, "convertedPrice");
-  console.log(currency, "currency");
 
   console.log(filteredTickets, "filteredTickets");
   useEffect(() => {
@@ -25,8 +23,6 @@ export const TicketList: React.FC = () => {
   if (error) {
     return <div>Error: {error}</div>;
   }
-
-  // console.log(filteredTickets, "filteredTickets");
 
   return (
     <div>
