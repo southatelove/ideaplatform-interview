@@ -1,50 +1,57 @@
-# React + TypeScript + Vite
+# Тестовое задание на позицию Frontend-разработчик в Idea Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Техническое задание
 
-Currently, two official plugins are available:
+Нужно создать страницу выдачи билетов с фильтрами (как на макете ниже).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Необходимо выполнить следующие задания:
 
-## Expanding the ESLint configuration
+1. Рендер билетов (#task1)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Используйте React для того, чтобы отрисовать билеты с данными, сортированные по цене, из файла tickets.json
 
-- Configure the top-level `parserOptions` property like this:
+2. Фильтрация билетов (#task2)
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+Фильтрация билетов в выдаче по количеству пересадок.
+
+При выполнении задач должны быть соблюдены условия:
+
+• Используйте JavaScript/TypeScript;
+• Работоспособность в браузерах: IE 11, Chrome;
+
+Для удобства можно воспользоваться любыми вспомогательными библиотеками. Соответствие примерному макету на картинке и любые дополнительные функции приложения приветствуются.
+
+## Для запуска проекта используйте следующие команды
+
+```
+git clone https://github.com/southatelove/ideaplatform-interview.git
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
 ```
+npm i
+```
+
+```
+npm run dev
+```
+
+## Стек:
+
+- **TypeScript**
+- **React**
+- **Redux-toolkit**
+- **Redux-AsyncThunk**
+- **dayjs**
+- **Vite**
+- **SCSS**
+- **Module.scss**
+- **ClassNames**
+- **Jest**
+- **React Testing Library**
+- **Storybook**
+
+## Итог
+
+![alt text](/public/result-idea-platform.jpg)
+
+## Прикрепленная ссылка может не работать из-за безопасности браузера, рекомендуется склонировать репозиторий через команды выше

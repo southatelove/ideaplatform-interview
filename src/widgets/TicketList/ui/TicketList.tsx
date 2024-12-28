@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/app/providers/StoreProvider/config/store";
 import { gettingTickets } from "@/features/GettingTickets/model/services/gettingTickets";
 import { TicketCard } from "@/widgets/TicketCard";
+import { Loader } from "@/shared/ui/Loader/Loader";
+import styles from "./TicketList.module.scss";
 
 export const TicketList: React.FC = () => {
   const dispatch = useDispatch();
@@ -18,7 +20,7 @@ export const TicketList: React.FC = () => {
   }, [dispatch]);
 
   if (loading) {
-    return <div>Loading tickets...</div>;
+    return <Loader className={styles.loader} />;
   }
   if (error) {
     return <div>Error: {error}</div>;
