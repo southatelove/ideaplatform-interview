@@ -19,41 +19,28 @@ export const Primary: Story = {
   args: {
     title: "Title lorem ipsun",
     text: "Description Description Description",
+    textDate: "Description Description Description",
+    textTime: "Description Description Description",
   },
 };
-// export const Error: Story = {
-//   args: {
-//     title: "Title lorem ipsun",
-//     text: "Description Description Description",
-//     theme: TextTheme.ERROR,
-//   },
-// };
-// export const onlyTitle: Story = {
-//   args: {
-//     title: "Title lorem ipsun",
-//   },
-// };
-// export const onlyText: Story = {
-//   args: {
-//     text: "Description Description Description",
-//   },
-// };
-// export const PrimaryDark: Story = {
-//   args: {
-//     title: "Title lorem ipsun",
-//     text: "Description Description Description",
-//   },
-//   decorators: [ThemeDecorator(Theme.DARK)],
-// };
-// export const onlyTitleDark: Story = {
-//   args: {
-//     title: "Title lorem ipsun",
-//   },
-//   decorators: [ThemeDecorator(Theme.DARK)],
-// };
-// export const onlyTextDark: Story = {
-//   args: {
-//     text: "Description Description Description",
-//   },
-//   decorators: [ThemeDecorator(Theme.DARK)],
-// };
+
+export const onlyTitle: Story = {
+  args: {
+    title: "Title lorem ipsun",
+  },
+};
+export const onlyText: Story = {
+  args: {
+    text: "Title lorem ipsun",
+  },
+};
+export const onlyTextDate: Story = {
+  args: {
+    textDate: "Title lorem ipsun",
+  },
+};
+export const onlyTextTime: Story = {
+  args: {
+    textTime: "Title lorem ipsun",
+  },
+};
