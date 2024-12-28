@@ -15,7 +15,6 @@ export const StopFilter: React.FC = () => {
     dispatch(toggleStop(stop));
   };
 
-  console.log(selectedStops, "selectedStops");
   return (
     <div className={styles.filter}>
       <h2>Количество пересадок</h2>

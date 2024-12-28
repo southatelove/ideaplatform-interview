@@ -9,13 +9,17 @@ const initialState: TicketsState = {
   error: null,
   selectedStops: [],
   currency: "RUB",
+  convertedPrice: 0,
 };
 
 const convertPrice = (price: number, currency: string): number => {
-  if (currency === "RUB") return price;
-  if (currency === "USD") return price / 100;
-  if (currency === "EUR") return price / 105;
-  return price;
+  console.log(price, "convertPriceFirst");
+  const convertedPrice = price;
+
+  if (currency === "RUB") return convertedPrice;
+  if (currency === "USD") return convertedPrice / 100;
+  if (currency === "EUR") return convertedPrice / 105;
+  return convertedPrice;
 };
 
 const filterTickets = (tickets: Ticket[], selectedStops: number[]) => {
@@ -49,7 +53,7 @@ const ticketsSlice = createSlice({
         state.currency = action.payload;
         state.filteredTickets = state.filteredTickets.map((ticket) => ({
           ...ticket,
-          price: convertPrice(ticket.price, state.currency),
+          convertedPrice: convertPrice(ticket.price, state.currency),
         }));
       }
     },
@@ -65,7 +69,7 @@ const ticketsSlice = createSlice({
         state.tickets = action.payload.tickets;
         state.filteredTickets = action.payload.tickets.map((ticket) => ({
           ...ticket,
-          price: convertPrice(ticket.price, state.currency),
+          convertedPrice: convertPrice(ticket.price, state.currency),
         }));
       })
       .addCase(gettingTickets.rejected, (state, action) => {

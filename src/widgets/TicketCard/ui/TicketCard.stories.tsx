@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import TicketCard from "./TicketCard";
+
 import { Ticket } from "@/features/GettingTickets/model/types/types";
+import { TicketCard } from "./TicketCard";
 
 const meta: Meta<typeof TicketCard> = {
   title: "shared/TicketCard",

@@ -1,6 +1,10 @@
 .Button {
     cursor: pointer;
     color: var(--primary-color);
+    text-align: center;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
 }
 
 .clear {
@@ -25,7 +29,17 @@
     height: var(--font-line-l);
 }
 .big {
-    font: var(--font-xl);
+    padding: 10px 0px 10px 0px;
+    background-color: var(--light-orange);
+    color: #fff;
+    border: none;
+    font-size: var(--font-size-l);
+    line-height: 1.2;
+    min-width: 150px;
+}
+
+.big:hover{
+    background-color: var(--black-orange);
 }
 
 .disabled {

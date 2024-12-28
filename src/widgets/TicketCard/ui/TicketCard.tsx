@@ -5,42 +5,49 @@ import { useSelector } from "react-redux";
 
 import { Ticket } from "@/features/GettingTickets/model/types/types";
 import { RootState } from "@/app/providers/StoreProvider/config/store";
-import { Button } from "@/shared/index";
+import { Button, toLocaleDate } from "@/shared/index";
+import { ButtonSize } from "@/shared/ui/Button/Button";
+import { Text } from "@/shared/ui/Text/Text";
 
 interface TicketCardProps {
   ticket: Ticket;
   currency: string;
+  convertedPrice: number;
 }
 
 export const TicketCard: React.FC<TicketCardProps> = ({ ticket }) => {
-  // const currency = useSelector((state: RootState) => state.tickets.currency);
+  const currency = useSelector((state: RootState) => state.tickets.currency);
 
-  // console.log(currency, "currency");
   return (
     <div className={styles.card}>
       <div className={styles.leftside}>
-        <h3>{ticket.carrier} Airlines</h3>
-        <Button>Купить за {ticket.price}</Button>
+        <h1>{ticket.carrier} Airlines</h1>
+        <Button size={ButtonSize.BIG}>
+          Купить <br />
+          за <></>
+          {ticket.convertedPrice.toFixed(2)}
+          <></>
+          {currency}
+        </Button>
       </div>
-      <div>Линия</div>
-      <div>
-        <p>
-          {ticket.origin_name} - {ticket.destination_name}
-        </p>
-        <p>
-          {ticket.departure_time} - {ticket.arrival_time}
-        </p>
-        <p>Stops: {ticket.stops}</p>
-        <p>
-          Price:
-          {/* {currency == "RUB"
-          ? `${ticket.price} RUB`
-          : currency == "USD"
-          ? `${ticket.price.toFixed(2)} USD`
-          : `${ticket.price.toFixed(2)} EUR`} */}
-          {ticket.price.toFixed(2)}
-          {}
-        </p>
+      <div className={styles.rightside}>
+        <div className={styles.lefttimer}>
+          <Text textTime={ticket.departure_time} className={styles.text} />
+          <Text text={`${ticket.origin},${ticket.origin_name}`} />
+          <Text textDate={toLocaleDate(ticket.departure_date)} />
+        </div>
+        <div style={{ padding: "20px" }}>
+          {ticket.stops == 0 ? <p>Без Пересадок</p> : ""}
+          {ticket.stops == 1 ? <p>{ticket.stops} Пересадка</p> : ""}
+          {ticket.stops >= 2 ? <p>{ticket.stops} Пересадки</p> : ""}
+          {ticket.stops >= 5 ? <p>{ticket.stops} Пересадок</p> : ""}
+          <div>Самолетик</div>
+        </div>
+        <div className={styles.righttimer}>
+          <Text textTime={ticket.arrival_time} className={styles.text} />
+          <Text text={`${ticket.destination_name},${ticket.destination}`} />
+          <Text textDate={toLocaleDate(ticket.arrival_date)} />
+        </div>
       </div>
     </div>
   );

@@ -10,7 +10,10 @@ export const TicketList: React.FC = () => {
   const { filteredTickets, loading, error, currency } = useSelector(
     (state: RootState) => state.tickets
   );
+  // console.log(convertedPrice, "convertedPrice");
+  console.log(currency, "currency");
 
+  console.log(filteredTickets, "filteredTickets");
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     dispatch(gettingTickets() as any);
@@ -23,7 +26,7 @@ export const TicketList: React.FC = () => {
     return <div>Error: {error}</div>;
   }
 
-  console.log(filteredTickets, "filteredTickets");
+  // console.log(filteredTickets, "filteredTickets");
 
   return (
     <div>
@@ -32,6 +35,7 @@ export const TicketList: React.FC = () => {
           key={ticket.price + ticket.arrival_time}
           ticket={ticket}
           currency={currency}
+          convertedPrice={ticket.convertedPrice}
         />
       ))}
     </div>

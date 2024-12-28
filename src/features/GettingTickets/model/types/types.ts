@@ -10,6 +10,7 @@ export interface Ticket {
   carrier: string;
   stops: number;
   price: number;
+  convertedPrice: number;
 }
 
 export type Currency = "RUB" | "EUR" | "USD";
@@ -21,6 +22,7 @@ export interface TicketsState {
   error: string | null;
   selectedStops: number[];
   currency: Currency;
+  convertedPrice: number;
 }
 
 export interface FetchTicketsResponse {
