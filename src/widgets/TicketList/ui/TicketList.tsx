@@ -13,7 +13,6 @@ export const TicketList: React.FC = () => {
     (state: RootState) => state.tickets
   );
 
-  console.log(filteredTickets, "filteredTickets");
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     dispatch(gettingTickets() as any);

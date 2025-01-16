@@ -65,7 +65,6 @@ const ticketsSlice = createSlice({
       })
       .addCase(gettingTickets.fulfilled, (state, action) => {
         state.loading = false;
-        console.log(action.payload.tickets, "tickets from API");
         state.tickets = action.payload.tickets;
         state.filteredTickets = action.payload.tickets.map((ticket) => ({
           ...ticket,
