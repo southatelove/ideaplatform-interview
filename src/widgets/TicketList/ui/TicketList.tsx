@@ -9,7 +9,7 @@ import styles from "./TicketList.module.scss";
 
 export const TicketList: React.FC = () => {
   const dispatch = useDispatch();
-  const { filteredTickets, loading, error, currency } = useSelector(
+  const { filteredTickets, loading, error } = useSelector(
     (state: RootState) => state.tickets
   );
 
@@ -28,12 +28,7 @@ export const TicketList: React.FC = () => {
   return (
     <div>
       {filteredTickets.map((ticket) => (
-        <TicketCard
-          key={ticket.price + ticket.arrival_time}
-          ticket={ticket}
-          currency={currency}
-          convertedPrice={ticket.convertedPrice}
-        />
+        <TicketCard key={ticket.price + ticket.arrival_time} ticket={ticket} />
       ))}
     </div>
   );

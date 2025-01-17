@@ -12,8 +12,6 @@ import { AirplaneIcon } from "src/assets/Icons";
 
 interface TicketCardProps {
   ticket: Ticket;
-  currency: string;
-  convertedPrice: number;
 }
 
 export const TicketCard: React.FC<TicketCardProps> = ({ ticket }) => {
